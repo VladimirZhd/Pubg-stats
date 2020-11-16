@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 const headers = {
   Authorization: `Bearer ${config.get('pubgAPI')}`,
-  'Content-Type': 'application/vnd.api+json',
+  Accept: 'application/vnd.api+json',
 };
 
 const base = 'https://api.pubg.com/shards/steam';
@@ -31,8 +31,31 @@ app.get('/player/:name', async (req, res) => {
     const response = await axios.get(apiURl, {
       headers: headers,
     });
-    const data = await response.toJSON();
-    console.log(data);
+
+    console.log(response.data);
+    res.status(200).json({
+      playerId: response.data,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get('/player/:id/stats/:gameMode', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const gameMode = req.params.gameMode;
+    const apiURL = `${base}/seasons/lifetime/gameMode/${gameMode}/players?filter[playerIds]=${id}`;
+    const response = await axios.get(apiURL, { headers: headers });
+
+    if (response.status === 200) {
+      return res.status(200).json({
+        data: response.data,
+      });
+    }
+    res.status(response.status).json({
+      message: response.statusText,
+    });
   } catch (error) {
     console.error(error);
   }

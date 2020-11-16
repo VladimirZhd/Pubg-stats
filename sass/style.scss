@@ -1,0 +1,78 @@
+@import './partials/variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100vh;
+}
+
+body {
+  background: url('/src/images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #090907;
+  height: 50px;
+
+  &-list {
+   list-style: none;
+   display: flex;
+   justify-content: space-between;
+   
+   &-item {
+     padding: .8rem;
+    
+     a {
+       color: $cadmiumYellow;
+       text-decoration: none;
+       font-size: 1.2rem;
+     }
+   }
+  }
+}
+
+.container {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2rem;
+}
+
+.section {
+  &-landing {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.form {
+  &-input {
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    &::placeholder{
+      font-size: 1.2rem;
+      padding: 0 .5rem;
+    }
+  }
+
+  &-select {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-indent: 5px;
+    option {
+      font-size: 1.2rem;
+      width: 100%;
+    }
+  }
+}
