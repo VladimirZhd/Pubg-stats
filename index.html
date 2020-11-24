@@ -17,7 +17,7 @@
   <div class="container">
     <section class="section-landing">
       <input type="text" id="gametag" class="form-input" placeholder="Enter your Gametag" required>
-      <select name="gameMode" id="gameMode" class="form-select" required>
+      <select name="gameMode" id="gameMode" class="select-css" required>
         <option value="" >Select game mode</option>
         <option value="solo">Solo</option>
         <option value="solo-fpp">Solo FPP</option>
@@ -26,10 +26,10 @@
         <option value="squad">Squad</option>
         <option value="squad-fpp">Squad FPP</option>
       </select>
-      <button class="btn btn-primary">See Stats</button>
+      <button class="btn btn-primary" id="get-stats">See Stats</button>
     </section>
     <section class="section-stats">
-  
+      <ul id="listElement"></ul>
     </section>
   </div>
 </body>
