@@ -17,3 +17,20 @@ export const convertToJson = res => {
     throw new Error(res.statusText);
   }
 };
+
+export const parseWeaponName = list => {
+  const weaponNames = [];
+  Object.entries(list).forEach(([key, value]) => {
+    weaponNames.push(key.split('_')[2]);
+  });
+  return weaponNames;
+};
+
+export const addSelectElement = names => {
+  const select = document.createElement('select');
+  select.classList.add('select-css');
+  const firstOption = '<option value="">Choose an element</option>';
+  const options = names.map(x => `<option value='${x}'>${x}</option>`);
+  select.innerHTML = firstOption + options.join('');
+  qs('.section-stats').prepend(select);
+};

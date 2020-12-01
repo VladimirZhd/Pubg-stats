@@ -10,13 +10,14 @@
 <body>
   <div class="navbar">
     <ul class="navbar-list">
-      <li class="navbar-list-item"><a href="#">Home</a></li>
+      <li class="navbar-list-item"><a href="/index.html">Home</a></li>
       <li class="navbar-list-item"><a href="#">About</a></li>
     </ul>
   </div>
   <div class="container">
     <section class="section-landing">
       <input type="text" id="gametag" class="form-input" placeholder="Enter your Gametag" required>
+    </section>
       <select name="gameMode" id="gameMode" class="select-css" required>
         <option value="" >Select game mode</option>
         <option value="solo">Solo</option>
@@ -26,9 +27,9 @@
         <option value="squad">Squad</option>
         <option value="squad-fpp">Squad FPP</option>
       </select>
-      <button class="btn btn-primary" id="get-stats">See Stats</button>
-    </section>
+      <!-- <button class="btn btn-primary" id="get-stats">See Stats</button> -->
     <section class="section-stats">
+      <h3>Lifetime Game Stats</h3>
       <ul id="listElement"></ul>
     </section>
   </div>

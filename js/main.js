@@ -1,13 +1,31 @@
-import { getId, getStats, displayStats } from './modules/dataModule.js';
-import { qs, clickHandle } from './modules/utilities.js';
+import { getId, getStats, displayStats, getWeapons } from './modules/dataModule.js';
+import { qs, clickHandle, parseWeaponName, addSelectElement } from './modules/utilities.js';
 
-clickHandle('#get-stats', async () => {
+const storage = window.sessionStorage;
+let weaponArray;
+
+const showData = async () => {
+  qs('#listElement').innerHTML = ' ';
   const gametag = qs('#gametag');
-  const id = await getId(gametag.value);
+  let user;
+  if (gametag.value) {
+    storage.username = gametag.value;
+    user = gametag.value;
+  } else {
+    user = storage.username;
+  }
+  const userId = await getId(user);
   const gameMode = qs('#gameMode');
   const selectedIndex = gameMode.options.selectedIndex;
-  const stats = await getStats(id, gameMode.options[selectedIndex].value);
+  const weapons = await getWeapons(userId);
+  weaponArray = parseWeaponName(weapons);
+  addSelectElement(weaponArray);
+  const stats = await getStats(userId, gameMode.options[selectedIndex].value);
   const listHtml = await displayStats(stats);
   qs('.section-landing').style.display = 'none';
+  qs('.section-stats').style.display = 'block';
   qs('#listElement').innerHTML = listHtml;
-});
+};
+
+const selectElement = qs('#gameMode');
+selectElement.addEventListener('change', showData);

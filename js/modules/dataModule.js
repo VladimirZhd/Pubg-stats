@@ -10,6 +10,13 @@ export const getStats = async (id, gameMode) => {
   return data.data.data[0].attributes.gameModeStats[gameMode];
 };
 
+export const getWeapons = async id => {
+  const data = await fetch(`http://localhost:3000/player/${id}/weapon_mastery`).then(convertToJson);
+  return data.data.data.attributes.weaponSummaries;
+};
+
+export const displayWeaponStats = (name, weaponList) => {};
+
 export const displayStats = stats => {
   const listArray = [];
   Object.entries(stats).map(([key, value]) => {
@@ -42,7 +49,6 @@ export const displayStats = stats => {
         listArray.push(`<li>Total kills: <span>${value}</span></li>`);
         break;
       case 'longestKill':
-        console.log(value);
         listArray.push(`<li>Longest kill: <span>${(value * 0.000621371).toFixed(2)} miles</span></li>`);
         break;
       case 'longestTimeSurvived':

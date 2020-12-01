@@ -61,6 +61,25 @@ app.get('/player/:id/stats/:gameMode', async (req, res) => {
   }
 });
 
+app.get('/player/:id/weapon_mastery', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const apiUrl = `${base}/players/${id}/weapon_mastery`;
+    const response = await axios.get(apiUrl, { headers: headers });
+
+    if (response.status === 200) {
+      return res.status(200).json({
+        data: response.data,
+      });
+    }
+    res.status(response.status).json({
+      message: response.statusText,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.set('port', PORT);
 const server = http.createServer(app);
 
