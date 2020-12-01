@@ -31,8 +31,6 @@ app.get('/player/:name', async (req, res) => {
     const response = await axios.get(apiURl, {
       headers: headers,
     });
-
-    console.log(response.data);
     res.status(200).json({
       playerId: response.data,
     });

@@ -29,6 +29,7 @@ export const parseWeaponName = list => {
 export const addSelectElement = names => {
   const select = document.createElement('select');
   select.classList.add('select-css');
+  select.id = 'weaponList';
   const firstOption = '<option value="">Choose an element</option>';
   const options = names.map(x => `<option value='${x}'>${x}</option>`);
   select.innerHTML = firstOption + options.join('');
