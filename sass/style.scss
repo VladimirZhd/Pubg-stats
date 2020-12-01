@@ -1,9 +1,15 @@
 @import './partials/variables';
 
+@font-face {
+  font-family: 'VFCFantomen';
+  src: url('../font.woff2') format('woff2'), url('../font.woff') format('woff');
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'VFCFantomen';
 }
 
 html,
@@ -55,14 +61,25 @@ body {
   &-stats {
     display: none;
 
+    h3 {
+      font-size: 1.7rem;
+      letter-spacing: 2px;
+    }
+
     ul {
       list-style: none;
       background-color: $gargoyleGas;
-      color: #fff;
+      color: $brown;
+      margin-top: 1rem;
 
       li {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         padding: .2rem 1rem;
+        border-bottom: $brown solid 1px;
+
+        span {
+          float: right;
+        }
       }
     }
   }
@@ -116,9 +133,8 @@ body {
 
 .select-css {
   display: block;
-  font-size: 16px;
-  font-family: sans-serif;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 400;
   color: #444;
   line-height: 1.3;
   padding: .6em 1.4em .5em .8em;
@@ -159,20 +175,11 @@ body {
 
 .select-css option {
   font-weight: normal;
+  font-size: 1.4rem;
 }
 
 .stats-header {
   color: $vampireBlack;
   text-align: center;
   font-size: 1.3rem;
-}
-
-#listElement {
-  color: $brown;
-
-  li {
-    span {
-      float: right;
-    }
-  }
 }

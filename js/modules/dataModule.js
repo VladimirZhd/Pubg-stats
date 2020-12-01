@@ -23,14 +23,12 @@ export const displayWeaponStats = (name, weaponList) => {
         `
       <li>Current level: <span>${value.LevelCurrent}</span></li>
       <li>Total damage: <span>${value.StatsTotal.DamagePlayer.toFixed(0)}</span></li>
-      <li>Defeats: <span>${value.StatsTotal.Defeats}</span></li>
       <li>Total knockdowns: <span>${value.StatsTotal.Groggies}</span></li>
       <li>Total kills: <span>${value.StatsTotal.Kills}</span></li>
       <li>Total headshots: <span>${value.StatsTotal.HeadShots}</span></li>
       <li>Long range defeats: <span>${value.StatsTotal.LongRangeDefeats}</span></li>
-      <li>Longest defeat: <span>${(value.StatsTotal.LongestDefeat * 3.2808399).toFixed(2)} ft</span></li>
+      <li>Longest kill/knock: <span>${(value.StatsTotal.LongestDefeat * 3.2808399).toFixed(2)} ft</span></li>
       <li>Most damage dealt in a game: <span>${value.StatsTotal.MostDamagePlayerInAGame.toFixed(0)}</span></li>
-      <li>Most defeats in a game: <span>${value.StatsTotal.MostDefeatsInAGame}</span></li>
       <li>Most knockdowns in a game: <span>${value.StatsTotal.MostGroggiesInAGame}</span></li>
       <li>Most headshots in a game: <span>${value.StatsTotal.MostHeadShotsInAGame}</span></li>
       <li>Most kills in a game: <span>${value.StatsTotal.MostKillsInAGame}</span></li>
@@ -77,7 +75,7 @@ export const displayStats = stats => {
       case 'longestTimeSurvived':
         const longestminutes = Math.floor(value / 60);
         const longestSeconds = Math.floor(value % 60);
-        listArray.push(`<li>Longest time survived: <span>${longestminutes}min ${longestSeconds}sec</span></li>`);
+        listArray.push(`<li>Longest time survived: <span>${longestminutes} min ${longestSeconds} sec</span></li>`);
         break;
       case 'looses':
         listArray.push(`<li>Maches lost: <span>${value}</span></li>`);
@@ -109,7 +107,7 @@ export const displayStats = stats => {
       case 'timeSurvived':
         const minutes = Math.floor(value / 60);
         const seconds = Math.floor(value % 60);
-        listArray.push(`<li>Total time survived: <span>${minutes}min ${seconds}sec</span></li>`);
+        listArray.push(`<li>Total time survived: <span>${minutes} min ${seconds} sec</span></li>`);
         break;
       case 'top10s':
         listArray.push(`<li>Top 10s: <span>${value}</span></li>`);
