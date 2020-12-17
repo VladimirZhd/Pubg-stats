@@ -1,4 +1,4 @@
-import { convertToJson, qs, clickHandle } from './utilities.js';
+import { convertToJson } from './utilities.js';
 
 export const getId = async name => {
   const data = await fetch(`http://localhost:3000/player/${name}`).then(convertToJson);
@@ -19,8 +19,7 @@ export const displayWeaponStats = (name, weaponList) => {
   let weaponHTML;
   Object.entries(weaponList).map(([key, value]) => {
     if (key.includes(name)) {
-      weaponHTML =
-        `
+      weaponHTML = `
       <li>Current level: <span>${value.LevelCurrent}</span></li>
       <li>Total damage: <span>${value.StatsTotal.DamagePlayer.toFixed(0)}</span></li>
       <li>Total knockdowns: <span>${value.StatsTotal.Groggies}</span></li>
@@ -34,7 +33,7 @@ export const displayWeaponStats = (name, weaponList) => {
       <li>Most kills in a game: <span>${value.StatsTotal.MostKillsInAGame}</span></li>
       `;
     }
-  })
+  });
   return weaponHTML;
 };
 

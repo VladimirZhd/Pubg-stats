@@ -17,8 +17,10 @@
     </ul>
   </div>
   <div class="container">
+    <h1 class='text-center'>PUBG Game Stats</h1>
     <section class="section-landing">
       <input type="text" id="gametag" class="form-input" placeholder="Enter your Gametag" required>
+      <span class="error">Username is required</span>
     </section>
     <select name="gameMode" id="gameMode" class="select-css" required>
       <option value="">Select game mode</option>
@@ -34,6 +36,7 @@
       <h3 class="stats-header"></h3>
       <ul id="listElement"></ul>
     </section>
+    <div class="loader"></div>
   </div>
 </body>
 
